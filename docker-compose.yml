@@ -1,0 +1,9 @@
+version: "3"
+services: 
+  
+  appnginx:
+    image: nginx:1.13
+    volumes: 
+      - ./app:/usr/share/nginx/html
+    ports:
+      - 80:80
