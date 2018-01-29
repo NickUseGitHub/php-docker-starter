@@ -1,9 +1,11 @@
 version: "3"
-services: 
-  
+services:
+
   appnginx:
-    image: nginx:1.13
-    volumes: 
+    build:
+      context: ./conf/nginx
+      dockerfile: Dockerfile-nginx
+    volumes:
       - ./app:/usr/share/nginx/html
     ports:
       - 80:80
