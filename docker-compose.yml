@@ -1,5 +1,10 @@
-version: "3"
+version: "2"
 services:
+
+  phpapp:
+    image: php:7-fpm
+    volumes: 
+      - ./app:/usr/share/nginx/html
 
   appnginx:
     build:
@@ -7,5 +12,7 @@ services:
       dockerfile: Dockerfile-nginx
     volumes:
       - ./app:/usr/share/nginx/html
+    links: 
+      - phpapp
     ports:
       - 80:80
